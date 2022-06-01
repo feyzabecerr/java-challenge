@@ -9,16 +9,20 @@ public class Phone implements CharSequence {
 
 	public Phone(String phoneNumber) {
 		this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
-		if(phoneNumber == null){
+		// if phone number null throw an exception
+		if(phoneNumber == null){ 
 			throw new IllegalArgumentException("A phone number cannot be null");
 		}
 		else{
-			checkEmpty(phoneNumber);
+			// if phoneNumber is not null call the functions below
+			checkEmpty(phoneNumber); 
 			checkSign();
 		}
 	}
 
-	public void checkEmpty(String phoneNumber){
+	// Checks if phone number is empty or not
+	public void checkEmpty(String phoneNumber){ 
+		// if phoneNumber is empty throw an exception
 		if(phoneNumber.isEmpty()){
 			throw new IllegalArgumentException("A phone number cannot be empty");
 		}
@@ -26,15 +30,19 @@ public class Phone implements CharSequence {
 	}
 
 	public void checkSign(){
-		if(charAt(0) == '+'){
-			if(length() < 5){
+		// checks if phoneNumber starts with +	
+		if(charAt(0) == '+'){ 
+			if(length() < 5){ 
+				// if starts with + and length smaller than 5 throw an error
 				throw new IllegalArgumentException("A phone number should be at least 5-char long when it starts with +");
 			}
 			if(subSequence(0, 3).equals("+90") && length()!= 13){
+				// if phoneNumber starts with +90 and length is not 13 throw an error
 				throw new IllegalArgumentException("should be exactly 13-char long when it starts with `+90`");	
 			}
 		}
-		else{
+		else{ 
+			// if they don't fit those rules throw error except for 112 or 911
 			if(!(phoneNumber.equals("112") || phoneNumber.equals("911"))){
 				throw new IllegalArgumentException("may not start with `+` if it's `112` or `911`");
 			}
