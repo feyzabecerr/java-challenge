@@ -9,7 +9,7 @@ public class Phone implements CharSequence {
 
 	public Phone(String phoneNumber) {
 		this.phoneNumber = phoneNumber == null ? "" : phoneNumber;
-		// if phone number null throw an exception
+		// if phone number is null throw an exception
 		if(phoneNumber == null){ 
 			throw new IllegalArgumentException("A phone number cannot be null");
 		}
@@ -33,7 +33,7 @@ public class Phone implements CharSequence {
 		// checks if phoneNumber starts with +	
 		if(charAt(0) == '+'){ 
 			if(length() < 5){ 
-				// if starts with + and length smaller than 5 throw an error
+				// if phoneNumber starts with + and length is smaller than 5 throw an error
 				throw new IllegalArgumentException("A phone number should be at least 5-char long when it starts with +");
 			}
 			if(subSequence(0, 3).equals("+90") && length()!= 13){
@@ -42,7 +42,7 @@ public class Phone implements CharSequence {
 			}
 		}
 		else{ 
-			// if they don't fit those rules throw error except for 112 or 911
+			// if they don't fit those rules throw an error except for 112 or 911
 			if(!(phoneNumber.equals("112") || phoneNumber.equals("911"))){
 				throw new IllegalArgumentException("may not start with `+` if it's `112` or `911`");
 			}
