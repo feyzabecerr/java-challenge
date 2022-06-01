@@ -10,11 +10,9 @@ public class Email implements CharSequence {
 	public final boolean verified;
 
 	public Email(String email) {
-
+		// this keyword to call another constructor and to follow DRY principle
+		this(email,false);
 		validate(email);
-
-		this.email = email;
-		this.verified = false;
 	}
 
 	public Email(String email, boolean verified) {
@@ -24,6 +22,7 @@ public class Email implements CharSequence {
 		this.email = email;
 		this.verified = verified;
 	}
+	
 
 	private static void validate(String email) {
 		if (email == null) {
