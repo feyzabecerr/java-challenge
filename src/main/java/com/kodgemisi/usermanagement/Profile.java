@@ -49,6 +49,10 @@ public class Profile {
 		return primaryPhone;
 	}
 
+	public boolean getTrPrimaryPhone(){
+		return primaryPhone.subSequence(0, 3).equals("+90");
+	}
+
 	public void setPrimaryPhone(Phone primaryPhone) {
 		this.primaryPhone = primaryPhone;
 	}
