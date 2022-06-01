@@ -12,7 +12,6 @@ public class Email implements CharSequence {
 	public Email(String email) {
 		// this keyword to call another constructor and to follow DRY principle
 		this(email,false);
-		validate(email);
 	}
 
 	public Email(String email, boolean verified) {
