@@ -49,6 +49,7 @@ public class Profile {
 		return primaryPhone;
 	}
 
+	// return true if user have TR primary phone number
 	public boolean getTrPrimaryPhone(){
 		return primaryPhone.subSequence(0, 3).equals("+90");
 	}

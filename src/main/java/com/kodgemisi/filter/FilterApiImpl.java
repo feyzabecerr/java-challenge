@@ -17,8 +17,7 @@ public class FilterApiImpl implements FilterApi {
 	@Override
 	public List<User> unverifiedUnder18() {
 
-		//FIXME currently returns all the users unfiltered, you should fix this method
-		// If you are not sure how to implement this method, please refer to the Javadoc or the FilterApi interface
+		// filter from userService users which are unverified and under 18 years old
 
 		return userService.list().stream().filter(user -> !(user.isVerified()) && user.getAge() < 18).collect(Collectors.toList());
 
@@ -26,8 +25,8 @@ public class FilterApiImpl implements FilterApi {
 
 	@Override
 	public List<User> verifiedWithTrPrimaryPhone() {
-		//FIXME currently returns all the users unfiltered, you should fix this method
-		// If you are not sure how to implement this method, please refer to the Javadoc or the FilterApi interface
+		//filter from userService users which are verified and have TR primary phone number
+
 		return userService.list().stream().filter(user -> user.isVerified() && user.getProfile().getTrPrimaryPhone()).collect(Collectors.toList());
 
 	}
